@@ -4,13 +4,16 @@ utils\HttpUtils.class
 facades\DepartmentFacade.class
 cors\CorsFilter.class
 facades\EmployeeFacade.class
+rest\EmployeeResource.class
 Tester.class
 DTOs\ProjectDTO.class
 DTOs\DepartmentDTO.class
+DTOs\EmployeesDTO.class
 errorhandling\exceptions\API_Exception.class
 entities\Department.class
 rest\ApplicationConfig.class
 rest\DepartmentResource.class
+DTOs\DepartmentsDTO.class
 DTOs\EmployeeDTO.class
 utils\EMF_Creator.class
 entities\Employee.class

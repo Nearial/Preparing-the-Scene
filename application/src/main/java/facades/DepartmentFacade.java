@@ -1,6 +1,7 @@
 package facades;
 
 import DTOs.DepartmentDTO;
+import DTOs.DepartmentsDTO;
 import entities.Department;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,18 +34,18 @@ public class DepartmentFacade {
         return emf.createEntityManager();
     }
     
-    public List<DepartmentDTO> getAllDepartments () {
+    public DepartmentsDTO getAllDepartments () {
         EntityManager em = getEntityManager();
         
         List<Department> departments;
-        List<DepartmentDTO> departmentDTOs = new ArrayList<>();
+        DepartmentsDTO departmentDTOs = new DepartmentsDTO();
         
         try{
             Query q = em.createNamedQuery("Department.getAll");
             departments = q.getResultList();
             
             for (Department department : departments) {
-                departmentDTOs.add(new DepartmentDTO(department));
+                departmentDTOs.addDepartment(new DepartmentDTO(department));
             }
             
             return departmentDTOs;

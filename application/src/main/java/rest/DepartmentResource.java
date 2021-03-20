@@ -1,6 +1,7 @@
 package rest;
 
 import DTOs.DepartmentDTO;
+import DTOs.DepartmentsDTO;
 import facades.DepartmentFacade;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -31,8 +32,8 @@ public class DepartmentResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllDepartments() {
-        List<DepartmentDTO> departments = FACADE.getAllDepartments();
-        return Response.ok(departments).build();
+        DepartmentsDTO departments = FACADE.getAllDepartments();
+        return Response.ok().entity(GSON.toJson(departments)).build();
     }
    
     

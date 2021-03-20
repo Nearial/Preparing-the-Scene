@@ -16,7 +16,6 @@ public class DepartmentDTO {
         this.code = department.getCode();
         this.name = department.getName();
         this.description = department.getDescription();
-        
     }
 
     public String getCode() {

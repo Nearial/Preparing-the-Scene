@@ -5,10 +5,13 @@ C:\Users\Mathias\Documents\4.semester\Preparing-the-Scene\application\src\main\j
 C:\Users\Mathias\Documents\4.semester\Preparing-the-Scene\application\src\main\java\cors\CorsFilter.java
 C:\Users\Mathias\Documents\4.semester\Preparing-the-Scene\application\src\main\java\rest\ApplicationConfig.java
 C:\Users\Mathias\Documents\4.semester\Preparing-the-Scene\application\src\main\java\errorhandling\exceptions\AuthenticationException.java
+C:\Users\Mathias\Documents\4.semester\Preparing-the-Scene\application\src\main\java\rest\EmployeeResource.java
 C:\Users\Mathias\Documents\4.semester\Preparing-the-Scene\application\src\main\java\errorhandling\exceptions\FetchException.java
 C:\Users\Mathias\Documents\4.semester\Preparing-the-Scene\application\src\main\java\DTOs\ProjectDTO.java
 C:\Users\Mathias\Documents\4.semester\Preparing-the-Scene\application\src\main\java\DTOs\DepartmentDTO.java
 C:\Users\Mathias\Documents\4.semester\Preparing-the-Scene\application\src\main\java\errorhandling\exceptions\DatabaseException.java
+C:\Users\Mathias\Documents\4.semester\Preparing-the-Scene\application\src\main\java\DTOs\DepartmentsDTO.java
+C:\Users\Mathias\Documents\4.semester\Preparing-the-Scene\application\src\main\java\DTOs\EmployeesDTO.java
 C:\Users\Mathias\Documents\4.semester\Preparing-the-Scene\application\src\main\java\DTOs\EmployeeDTO.java
 C:\Users\Mathias\Documents\4.semester\Preparing-the-Scene\application\src\main\java\utils\HttpUtils.java
 C:\Users\Mathias\Documents\4.semester\Preparing-the-Scene\application\src\main\java\facades\EmployeeFacade.java

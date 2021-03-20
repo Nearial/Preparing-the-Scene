@@ -7,6 +7,7 @@ package rest;
 
 import DTOs.DepartmentDTO;
 import DTOs.EmployeeDTO;
+import DTOs.EmployeesDTO;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import facades.DepartmentFacade;
@@ -43,7 +44,7 @@ public class EmployeeResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllEmployees() {
-        List<EmployeeDTO> employees = FACADE.getAllEmployees();
-        return Response.ok(employees).build();
+        EmployeesDTO employees = FACADE.getAllEmployees();
+        return Response.ok().entity(GSON.toJson(employees)).build();
     }
 }
