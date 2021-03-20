@@ -5,10 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 /**
@@ -21,18 +24,22 @@ public class Project implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "p_id")
     private Long id;
+    
     private String title;
     private int duration;
     
+     @JoinTable(name = "projectToEmployee", joinColumns = {
+        @JoinColumn(name = "p_id", referencedColumnName = "p_id")}, inverseJoinColumns = {
+        @JoinColumn(name = "e_id", referencedColumnName = "e_id")})
     @ManyToMany (cascade = CascadeType.PERSIST)
-    private List<Employee> employees;
+    private List<Employee> employees = new ArrayList<>();
     
     public Project() {
     }
 
     public Project(String title, int duration) {
-        this.employees = new ArrayList<>();
         this.title = title;
         this.duration = duration;
     }
@@ -69,6 +76,13 @@ public class Project implements Serializable {
         this.employees = employees;
     }
     
+    public void addEmployee(Employee employee){
+        if(employee != null){
+            employees.add(employee);
+        }
+    }
+    
+    /*
     public void addEmployee (Employee employee) {
         if(!employees.contains(employee)) {
             employees.add(employee);
@@ -82,6 +96,7 @@ public class Project implements Serializable {
             employee.getProjects().remove(this);
         }
     }
+*/
 
     @Override
     public int hashCode() {

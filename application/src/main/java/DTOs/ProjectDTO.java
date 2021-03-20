@@ -2,6 +2,7 @@ package DTOs;
 
 import entities.Employee;
 import entities.Project;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,12 +13,15 @@ public class ProjectDTO {
     
     private String title;
     private int duration;
-    private List<Employee> employee;
+    private List<EmployeeDTO> employees;
 
     public ProjectDTO(Project project) {
         this.title = project.getTitle();
         this.duration = project.getDuration();
-        this.employee = project.getEmployees();
+        employees = new ArrayList();
+        for(Employee employee : project.getEmployees()) {
+            employees.add(new EmployeeDTO(employee));
+        }
     }
 
     public String getTitle() {
@@ -28,8 +32,8 @@ public class ProjectDTO {
         return duration;
     }
 
-    public List<Employee> getEmployee() {
-        return employee;
+    public List<EmployeeDTO> getEmployee() {
+        return employees;
     }
     
 }

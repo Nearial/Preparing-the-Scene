@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,22 +27,24 @@ public class Department implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "d_id")
     private Long id;
+    
     private String code;
     private String name;
     private String description;
     
-    @OneToMany(mappedBy="department", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "department", cascade = CascadeType.PERSIST)
     private List<Employee> employees;
 
     public Department() {
     }
 
     public Department(String code, String name, String description) {
-        this.employees = new ArrayList<>();
         this.code = code;
         this.name = name;
         this.description = description;
+        this.employees = new ArrayList<>();
     }
 
     public Long getId() {
@@ -85,10 +88,10 @@ public class Department implements Serializable {
     }
     
     public void addEmployee(Employee employee) {
-        if(!employees.contains(employee)) {
-            employees.add(employee);
+        if(employee != null && employee.getDepartment() != null && !employee.getDepartment().getName().equals(this.name)) {
             employee.setDepartment(this);
         }
+        this.employees.add(employee);
     }
     
     public void removeEmployee(Employee employee) {

@@ -1,8 +1,6 @@
 package DTOs;
 
 import entities.Department;
-import entities.Employee;
-import java.util.List;
 
 /**
  *
@@ -13,13 +11,12 @@ public class DepartmentDTO {
     private String code;
     private String name;
     private String description;
-    private List<Employee> employees;
 
     public DepartmentDTO(Department department) {
         this.code = department.getCode();
         this.name = department.getName();
         this.description = department.getDescription();
-        this.employees = department.getEmployees();
+        
     }
 
     public String getCode() {
@@ -32,10 +29,6 @@ public class DepartmentDTO {
 
     public String getDescription() {
         return description;
-    }
-
-    public List<Employee> getEmployees() {
-        return employees;
     }
 
 }

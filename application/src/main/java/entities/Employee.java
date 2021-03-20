@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -27,26 +29,31 @@ public class Employee implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "e_id")
     private Long id;
+    
     private String firstName;
     private String lastName;
     private String email;
     
-    @ManyToOne (cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "d_id", referencedColumnName ="d_id")
+    @ManyToOne (optional = false, cascade = CascadeType.PERSIST)
     private Department department;
     
-    @ManyToMany (cascade = CascadeType.PERSIST)
-    private List<Project> projects;
+    //@ManyToMany (cascade = CascadeType.PERSIST)
+    //private List<Project> projects;
 
     public Employee() {
     }
 
     public Employee(String firstName, String lastName, String email, Department department) {
-        this.projects = new ArrayList<>();
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.department = department;
+        if(department != null && !department.getEmployees().contains(this)) {
+            department.addEmployee(this);
+        }
     }
 
     public Long getId() {
@@ -88,7 +95,7 @@ public class Employee implements Serializable {
     public void setDepartment(Department department) {
         this.department = department;
     }
-
+/*
     public List<Project> getProjects() {
         return projects;
     }
@@ -110,6 +117,7 @@ public class Employee implements Serializable {
             project.getEmployees().remove(this);
         }
     }
+*/
     
     @Override
     public int hashCode() {
