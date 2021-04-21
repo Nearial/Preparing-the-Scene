@@ -13,3 +13,5 @@
 * The fourth and fifth modules are both used for displaying the tables containing the data we collect in the APIFacade.
 
 * The Main module strings this all together.
+
+* Some endpoints with dummy data were made in Haskell. The dummy was used because there were problems with connecting to the database.
