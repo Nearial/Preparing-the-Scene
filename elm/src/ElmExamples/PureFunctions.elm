@@ -1,0 +1,1 @@
+module ElmExamples.PureFunctions exposing (..)
